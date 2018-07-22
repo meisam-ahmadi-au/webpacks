@@ -6,7 +6,6 @@ const merge = require("webpack-merge");
 
 
 const commonConfig = merge([
-    require("./webpack.parts/webpack.css")(),
     {
         plugins: [
             new HtmlWebpackPlugin({title: "webpack demo"}),
@@ -17,14 +16,17 @@ const commonConfig = merge([
     }
 ])
 
-const productionConfig = merge([]);
+const productionConfig = merge([
+    require("./webpack.parts/webpack.css")({mode:"production"}),
+]);
 
-const developmentConfig = merge([require("./webpack.parts/webpack.devServer")()]);
+const developmentConfig = merge([
+    require("./webpack.parts/webpack.devServer")(),
+    require("./webpack.parts/webpack.css")({mode:"development"}),
+
+]);
 
 module.exports = ({mode}) => {
-    console.log(mode);
-    console.dir(commonConfig);
-    console.dir(developmentConfig);
     if (mode === "production") {
         return merge([commonConfig, productionConfig, { mode } ]);
     }

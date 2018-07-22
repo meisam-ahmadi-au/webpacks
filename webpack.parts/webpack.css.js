@@ -1,11 +1,21 @@
-module.exports = ({include,exclude} = {}) => ({
+// to export css to a separate file
+const MiniCssExtractPlugin = require("mini-css-extract-plugin"); 
+
+
+module.exports = ({mode, include, exclude} = {}) => ({
     module: {
         rules: [{
             test: /\.css$/,
             include,
             exclude,
 
-            use: ["style-loader", "css-loader"],
+            use: [
+                mode==="production" ? MiniCssExtractPlugin.loader : "style-loader", 
+                "css-loader",
+            ],
         }, ],
     },
+    plugins: [
+        new MiniCssExtractPlugin({filename: "[name].css",}),
+    ]
 });
