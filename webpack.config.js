@@ -6,6 +6,7 @@ const merge = require("webpack-merge");
 
 
 const commonConfig = merge([
+    require("./webpack.parts/webpack.css")(),
     {
         plugins: [
             new HtmlWebpackPlugin({title: "webpack demo"}),
