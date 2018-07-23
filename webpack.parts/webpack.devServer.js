@@ -1,3 +1,5 @@
+const ErrorOverlayPlugin = require("error-overlay-webpack-plugin");
+
 module.exports = () => ({
     devServer: {
         stats: "errors-only", // Display only errors to reduce the amount of output.
@@ -7,4 +9,5 @@ module.exports = () => ({
         overlay: true ,
         //contentBase ,
     },
+    plugins: [ new ErrorOverlayPlugin()],
 })
