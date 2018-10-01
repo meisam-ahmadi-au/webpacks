@@ -13,7 +13,11 @@ module.exports = ({mode, include, exclude} = {}) => ({
                 mode==="production" ? MiniCssExtractPlugin.loader : "style-loader", 
                 "css-loader",
             ],
-        }, ],
+        },
+        {
+            test: /\.scss$/,
+            use: ["style-loader", "css-loader", "sass-loader"],
+        },],
     },
     plugins: [
         new MiniCssExtractPlugin({filename: "[name].css",}),

@@ -1,0 +1,16 @@
+.testScss {
+  background-color: beige;
+  ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-evenly;
+    li {
+      padding: 25px;
+      border: 3px solid  beige;
+      &:hover {
+        border-left-color: green;
+        transition: 0.3s all ease-in-out;
+      }
+    }
+  }
+}
