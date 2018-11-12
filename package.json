@@ -11,9 +11,15 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "browserslist": [
+    "last 2 version",
+    "> 1%"
+  ],
   "devDependencies": {
+    "autoprefixer": "^9.3.1",
     "babel-core": "^6.26.3",
     "babel-loader": "^7.1.5",
+    "clean-webpack-plugin": "^0.1.19",
     "css-loader": "^1.0.0",
     "error-overlay-webpack-plugin": "^0.1.5",
     "file-loader": "^1.1.11",
@@ -22,8 +28,12 @@
     "lqip-loader": "^2.1.1",
     "mini-css-extract-plugin": "^0.4.1",
     "node-sass": "^4.9.3",
+    "postcss-cssnext": "^3.1.0",
+    "postcss-loader": "^3.0.0",
     "sass-loader": "^7.1.0",
     "style-loader": "^0.21.0",
+    "svgo": "^1.1.1",
+    "svgo-loader": "^2.2.0",
     "url-loader": "^1.0.1",
     "webpack": "^4.16.1",
     "webpack-cli": "^3.1.0",

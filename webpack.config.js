@@ -1,6 +1,7 @@
 const webpack = require("webpack");
 const path = require("path");
 const merge = require("webpack-merge");
+const CleanWebpackPlugin = require("clean-webpack-plugin");
 
 
 const commonConfig = merge([
@@ -15,7 +16,8 @@ const commonConfig = merge([
 
 const productionConfig = merge([
     require("./webpack.parts/webpack.css")({mode:"production"}),
-    require("./webpack.parts/webpack.images")({ options: { limit: 15000, name: "images/[name].[ext]",}}),
+    require("./webpack.parts/webpack.images")({ options: { limit: 10000, name: "img/[name].[ext]",}}), 
+    {plugins: [new CleanWebpackPlugin([path.resolve(__dirname, "dist")])],}
 ]);
 
 const developmentConfig = merge([
@@ -26,7 +28,7 @@ const developmentConfig = merge([
 ]);
 
 module.exports = ({mode}) => {
-    console.log(developmentConfig.module);
+    // console.log(developmentConfig.module);
     if (mode === "production") {
         return merge([commonConfig, productionConfig, { mode } ]);
     }

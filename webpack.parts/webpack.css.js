@@ -5,18 +5,14 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 module.exports = ({mode, include, exclude} = {}) => ({
     module: {
         rules: [{
-            test: /\.css$/,
+            test: /\.(css|scss)$/,
             include,
             exclude,
 
             use: [
                 mode==="production" ? MiniCssExtractPlugin.loader : "style-loader", 
-                "css-loader",
+                "css-loader","postcss-loader","sass-loader",
             ],
-        },
-        {
-            test: /\.scss$/,
-            use: ["style-loader", "css-loader", "sass-loader"],
         },],
     },
     plugins: [

@@ -6,16 +6,23 @@ module.exports = ({ include, exclude, options } = {}) => ({
                 include,
                 exclude,
                 use: [
-                    {
-                        loader: "url-loader",
-                        options,
-                    }
+                    {loader: "url-loader", options,}
                 ],
             },
             {
                 test: /\.svg$/,
-                use: "file-loader",
+                use: [
+                    {loader: 'url-loader', options},
+                    {loader: 'svgo-loader', options: svgOptions}
+                ]
             },
         ]
     }
 });
+const svgOptions = {
+    plugins: [
+      {removeTitle: true},
+      {convertColors: {shorthex: false}},
+      {convertPathData: false}
+    ]
+  }
