@@ -1,3 +1,4 @@
-// // imports 
+/* eslint-disable quotes */
+// imports
+import "./main";
 import "./main.scss";
-import "./main.js"

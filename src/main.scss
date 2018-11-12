@@ -1,14 +1,17 @@
 .testScss {
   background-color: beige;
+
   ul {
     list-style: none;
     display: flex;
     justify-content: space-evenly;
     position: sticky;
+
     li {
       padding: 25px;
       border: 3px solid  beige;
       border-radius: 2px;
+
       &:hover {
         border-left-color: green;
         transition: 0.3s all ease-in-out;
@@ -16,13 +19,16 @@
     }
   }
 }
+
 .test-background {
   width: 100px;
-  height: 100px;
   background: url(./img/2000px-Letter_m.svg.png) top left no-repeat/ 50px 50px;
+  height: 100px;
 }
+
 .test2-background {
   width: 100px;
   height: 100px;
+  padding: 20px;
   background: url(./img/410.svg) top left no-repeat/ 50px 50px;
 }

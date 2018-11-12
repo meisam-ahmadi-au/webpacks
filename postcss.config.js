@@ -1,7 +1,8 @@
+/* eslint-disable global-require */
+/* eslint-disable quotes */
 module.exports = {
-    plugins: [
-    //   require('precss'),
-      require("autoprefixer"),
-      require("postcss-cssnext")
-    ]
-  }
+  plugins: [
+    require("autoprefixer"),
+    require("postcss-cssnext"),
+  ],
+};
