@@ -17,14 +17,14 @@ const commonConfig = merge([
 ]);
 
 const productionConfig = merge([
-  require("./webpack.parts/webpack.css").default({ mode: "production" }),
+  require("./webpack.parts/webpack.css")({ mode: "production" }),
   require("./webpack.parts/webpack.images")({ options: { limit: 10000, name: "img/[name].[ext]" } }),
   { plugins: [new CleanWebpackPlugin([path.resolve(__dirname, "dist")])] },
 ]);
 
 const developmentConfig = merge([
   require("./webpack.parts/webpack.devServer")(),
-  require("./webpack.parts/webpack.css").default({ mode: "development" }),
+  require("./webpack.parts/webpack.css")({ mode: "development" }),
   require("./webpack.parts/webpack.images")(),
 
 ]);
